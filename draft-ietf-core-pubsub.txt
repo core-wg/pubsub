@@ -2,16 +2,16 @@
 
 
 
-Network Working Group                                          M. Koster
+CoRE                                                         M.K. Koster
 Internet-Draft                                               SmartThings
-Intended status: Standards Track                              A. Keranen
-Expires: February 2, 2020                                     J. Jimenez
+Intended status: Standards Track                            A.K. Keranen
+Expires: 5 September 2020                                   J.J. Jiménez
                                                                 Ericsson
-                                                          August 1, 2019
+                                                            4 March 2020
 
 
 Publish-Subscribe Broker for the Constrained Application Protocol (CoAP)
-                     draft-ietf-core-coap-pubsub-07
+                     draft-ietf-core-coap-pubsub-09
 
 Abstract
 
@@ -37,30 +37,29 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 2, 2020.
+   This Internet-Draft will expire on 5 September 2020.
 
 Copyright Notice
 
-   Copyright (c) 2019 IETF Trust and the persons identified as the
+   Copyright (c) 2020 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
-   carefully, as they describe your rights and restrictions with respect
-   to this document.  Code Components extracted from this document must
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Simplified BSD License text
 
 
 
-Koster, et al.          Expires February 2, 2020                [Page 1]
+Koster, et al.          Expires 5 September 2020                [Page 1]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
-   include Simplified BSD License text as described in Section 4.e of
-   the Trust Legal Provisions and are provided without warranty as
-   described in the Simplified BSD License.
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
 
 Table of Contents
 
@@ -76,21 +75,21 @@ Table of Contents
      4.1.  DISCOVERY . . . . . . . . . . . . . . . . . . . . . . . .   6
      4.2.  CREATE  . . . . . . . . . . . . . . . . . . . . . . . . .   9
      4.3.  PUBLISH . . . . . . . . . . . . . . . . . . . . . . . . .  11
-     4.4.  SUBSCRIBE . . . . . . . . . . . . . . . . . . . . . . . .  14
+     4.4.  SUBSCRIBE . . . . . . . . . . . . . . . . . . . . . . . .  13
      4.5.  UNSUBSCRIBE . . . . . . . . . . . . . . . . . . . . . . .  15
-     4.6.  READ  . . . . . . . . . . . . . . . . . . . . . . . . . .  17
+     4.6.  READ  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
      4.7.  REMOVE  . . . . . . . . . . . . . . . . . . . . . . . . .  18
-   5.  CoAP Pub/sub Operation with Resource Directory  . . . . . . .  20
+   5.  CoAP Pub/sub Operation with Resource Directory  . . . . . . .  19
    6.  Sleep-Wake Operation  . . . . . . . . . . . . . . . . . . . .  20
    7.  Simple Flow Control . . . . . . . . . . . . . . . . . . . . .  20
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  21
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  20
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  21
      9.1.  Resource Type value 'core.ps' . . . . . . . . . . . . . .  22
      9.2.  Resource Type value 'core.ps.discover'  . . . . . . . . .  22
    10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  22
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  23
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  23
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  24
+   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
+     11.1.  Normative References . . . . . . . . . . . . . . . . . .  22
+     11.2.  Informative References . . . . . . . . . . . . . . . . .  23
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
 1.  Introduction
@@ -106,15 +105,15 @@ Table of Contents
    intended to run for years from a small battery, or by scavenging
    energy from their environment.  These devices have limited
    reachability because they spend most of their time in a sleeping
-
-
-
-Koster, et al.          Expires February 2, 2020                [Page 2]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    state with no network connectivity.  Devices may also have limited
+
+
+
+Koster, et al.          Expires 5 September 2020                [Page 2]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
    reachability due to certain middle-boxes, such as Network Address
    Translators (NATs) or firewalls.  Such middle-boxes often prevent
    connecting to a device from the Internet unless the connection was
@@ -161,17 +160,16 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
       document, which together implement the required features of this
       specification.
 
-
-
-
-
-Koster, et al.          Expires February 2, 2020                [Page 3]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    CoAP pub/sub Broker:  A server node capable of receiving messages
       (publications) from and sending messages to other nodes, and able
+
+
+
+Koster, et al.          Expires 5 September 2020                [Page 3]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
       to match subscriptions and publications in order to route messages
       to the right destinations.  The Broker can also temporarily store
       publications to satisfy future subscriptions and pending
@@ -213,7 +211,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
                   |Client |         |
                   +-------+         |
 
-
                     Figure 1: CoAP pub/sub Architecture
 
 
@@ -221,9 +218,12 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
 
 
-Koster, et al.          Expires February 2, 2020                [Page 4]
+
+
+
+Koster, et al.          Expires 5 September 2020                [Page 4]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 3.2.  CoAP Pub/sub Broker
@@ -277,9 +277,9 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
 
 
-Koster, et al.          Expires February 2, 2020                [Page 5]
+Koster, et al.          Expires 5 September 2020                [Page 5]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 3.5.  Brokerless Pub/sub
@@ -308,8 +308,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
                    |Broker |         |         |Client |
                    +-------+         |         +-------+
 
-
-                       Figure 2: Brokerless pub/sub
+                        Figure 2: Brokerless pub/sub
 
 4.  CoAP Pub/sub REST API
 
@@ -330,15 +329,15 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    link to the entry point of its pub/sub API at its .well-known/core
    location [RFC6690].  A CoAP pub/sub Broker MAY register its pub/sub
    REST API entry point with a Resource Directory.  Figure 3 shows an
-
-
-
-Koster, et al.          Expires February 2, 2020                [Page 6]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    example of a client discovering a local pub/sub API using CoAP Simple
+
+
+
+Koster, et al.          Expires 5 September 2020                [Page 6]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
    Discovery.  A Broker wishing to advertise the CoAP pub/sub API for
    Simple Discovery or through a Resource Directory MUST use the link
    relation rt=core.ps.  A Broker MAY advertise its supported content
@@ -389,9 +388,10 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
 
 
-Koster, et al.          Expires February 2, 2020                [Page 7]
+
+Koster, et al.          Expires 5 September 2020                [Page 7]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
    Success:  2.05 "Content" with an application/link-format payload
@@ -416,8 +416,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             | </ps/>;rt=core.ps;rt=core.ps.discover;ct=40 --|
             |                                               |
 
-
-              Figure 3: Example of DISCOVER pub/sub function
+               Figure 3: Example of DISCOVER pub/sub function
 
           Client                                          Broker
             |                                               |
@@ -427,7 +426,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             | <<-- 2.05 Content                             |
             |   </ps/currentTemp>;rt="temperature";ct=50 ---|
             |                                               |
-
 
                     Figure 4: Example of DISCOVER topic
 
@@ -440,14 +438,16 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             |   </ps/currentTemp>;rt="temperature";ct=50 ---|
             |                                               |
 
-
                     Figure 5: Example of DISCOVER topic
 
 
 
-Koster, et al.          Expires February 2, 2020                [Page 8]
+
+
+
+Koster, et al.          Expires 5 September 2020                [Page 8]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 4.2.  CREATE
@@ -501,9 +501,9 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
 
 
-Koster, et al.          Expires February 2, 2020                [Page 9]
+Koster, et al.          Expires 5 September 2020                [Page 9]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
    indefinitely if the Max-Age option is elided or is set to zero upon
@@ -551,15 +551,15 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             |               Location: /ps/topic1            |
             |                                               |
 
-
                      Figure 6: Example of CREATE topic
 
 
 
 
-Koster, et al.          Expires February 2, 2020               [Page 10]
+
+Koster, et al.          Expires 5 September 2020               [Page 10]
 
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
           Client                                          Broker
@@ -576,8 +576,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             |                                               |
             |                                               |
 
-
-              Figure 7: Example of CREATE of topic hierarchy
+               Figure 7: Example of CREATE of topic hierarchy
 
 4.3.  PUBLISH
 
@@ -609,17 +608,15 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    topics necessary, and create a topic link with the ct attribute set
    to the content-format value from the header of the PUT request.  If
    topic is created, the Broker MUST return the response "2.01 Created"
-
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 11]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    with the URI of the created topic, including all of the created path
    segments, returned via the Location-Path option.
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 11]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
    Figure 9 shows an example of a topic being created on first PUBLISH.
 
@@ -666,16 +663,16 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
    Content-Format:  Any valid CoAP content format
 
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 12]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    Payload:  Representation of the topic value (CoAP resource state
       representation) in the indicated content format
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 12]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
    The following response codes are defined for the PUBLISH operation:
 
@@ -704,8 +701,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             | <--------------- 2.04 Changed---------------- |
             |                                               |
 
-
-                       Figure 8: Example of PUBLISH
+                        Figure 8: Example of PUBLISH
 
           Client                                          Broker
             |                                               |
@@ -716,19 +712,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             |             Location: /ps/exa/mpl/e           |
             |                                               |
 
-
-                  Figure 9: Example of CREATE on PUBLISH
-
-
-
-
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 13]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
+                   Figure 9: Example of CREATE on PUBLISH
 
 4.4.  SUBSCRIBE
 
@@ -738,6 +722,14 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    GET with the Observe option set to 0 (zero).  The Broker MAY add the
    client to a list of observers.  The Broker MUST return a response
    code of "2.05 Content" along with the most recently published value
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 13]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
    if the topic contains a valid value and the Broker can supply the
    requested content format.  The Broker MUST reject Subscribe requests
    on a topic if the content format of the request is not the content
@@ -779,13 +771,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
    URI Template:  {+ps}/{+topic}
 
-
-
-Koster, et al.          Expires February 2, 2020               [Page 14]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    URI Template Variables:  ps := Pub/sub REST API entry point
       (optional).  The entry point of the pub/sub REST API, as obtained
       from discovery, used to discover topics.
@@ -793,6 +778,13 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
       topic := The desired topic to return links for (optional).
 
    The following response codes are defined for the SUBSCRIBE operation:
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 14]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
    Success:  2.05 "Content".  Successful subscribe, current value
       included
@@ -825,7 +817,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
        |          | <---------- 2.05 Content Observe:11 --------- |
        |          |                                               |
 
-
                       Figure 10: Example of SUBSCRIBE
 
 4.5.  UNSUBSCRIBE
@@ -834,14 +825,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    Broker, it MUST allow Clients to unsubscribe from topics on the
    Broker using the CoAP Cancel Observation operation.  A CoAP pub/sub
    Client wishing to unsubscribe to a topic on a Broker MUST either use
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 15]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    CoAP GET with Observe using an Observe parameter of 1 or send a CoAP
    Reset message in response to a publish, as per [RFC7641].
 
@@ -850,6 +833,14 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    Interaction:  Client -> Broker
 
    Method:  GET
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 15]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
    Options:  Observe:1
 
@@ -882,29 +873,12 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    Figure 11 shows an example of a client unsubscribe using the
    Observe=1 cancellation method.
 
-
-
-
-
-
-
-
-
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 16]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
           Client                                          Broker
             |                                               |
             | ----- GET /ps/topic1 Observe:1 Token:XX ----> |
             |                                               |
             | <------------- 2.05 Content ----------------- |
             |                                               |
-
 
                      Figure 11: Example of UNSUBSCRIBE
 
@@ -916,6 +890,13 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    response code of "2.05 Content" along with the most recently
    published value if the topic contains a valid value and the Broker
    can supply the requested content format.
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 16]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
    If the topic was published with the Max-Age option, the Broker MUST
    set the Max-Age option in the valid response to the amount of time
@@ -947,13 +928,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
       topic := The desired topic to return links for (optional).
 
-
-
-Koster, et al.          Expires February 2, 2020               [Page 17]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    The following response codes are defined for the READ operation:
 
    Success:  2.05 "Content".  Successful READ, current value included
@@ -970,6 +944,15 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    Figure 12 shows an example of a successful READ from topic1, followed
    by a Publish on the topic, followed at some time later by a read of
    the updated value from the recent Publish.
+
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 17]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
      Client1   Client2                                          Broker
        |          |                     Read                      |
@@ -988,8 +971,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
        |          | <----------- 2.05 Content "1033.3" ---------- |
        |          |                                               |
 
-
-                        Figure 12: Example of READ
+                         Figure 12: Example of READ
 
 4.7.  REMOVE
 
@@ -1002,14 +984,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
    When a topic is removed for any reason, the Broker SHOULD remove all
    of the observers from the list of observers and return a final 4.04
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 18]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    "Not Found" response as per [RFC7641] Section 3.2.  If a topic which
    has sub-topics is removed, then all of its sub-topics MUST be
    recursively removed.
@@ -1027,6 +1001,14 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
       from discovery, used to discover topics.
 
       topic := The desired topic to return links for (optional).
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 18]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
    Content-Format:  None
 
@@ -1052,19 +1034,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
             | <-------------- 2.02 Deleted ---------------- |
             |                                               |
 
-
-                       Figure 13: Example of REMOVE
-
-
-
-
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 19]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
+                        Figure 13: Example of REMOVE
 
 5.  CoAP Pub/sub Operation with Resource Directory
 
@@ -1088,6 +1058,14 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    The pub/sub Broker triggers the RD to retrieve its links by sending a
    POST with an empty payload to the .well-known/core of the Resource
    Directory.  The RD server will then retrieve the links from the
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 19]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
    .well-known/core of the pub/sub Broker and incorporate them into the
    Resource Directory.  See [I-D.ietf-core-resource-directory] for
    further details.
@@ -1114,14 +1092,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    Since the Broker node has to potentially send a large amount of
    notification messages for each publish message and it may be serving
    a large amount of subscribers and publishers simultaneously, the
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 20]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    Broker may become overwhelmed if it receives many publish messages to
    popular topics in a short period of time.
 
@@ -1144,6 +1114,14 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    therefore the security considerations of those documents also apply
    to this specification.  Additionally, a CoAP pub/sub Broker and the
    clients SHOULD authenticate each other and enforce access control
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 20]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
    policies.  A malicious client could subscribe to data it is not
    authorized to or mount a denial of service attack against the Broker
    by publishing a large number of resources.  The authentication can be
@@ -1170,14 +1148,6 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    client application.  Similarly, integrity protected sensor data from
    a client device will also provide guarantee to the client application
    that the data originated on the client device itself.  The protected
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 21]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    data can also be verified by the intermediate Broker ensuring that it
    stores/caches correct request/response and no malicious messages/
    requests are accepted.  The Broker would still be able to perform
@@ -1185,10 +1155,10 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
 
    Depending on the level of trust users and system designers place in
    the CoAP pub/sub Broker, the use of end-to-end object security is
-   RECOMMENDED as described in [I-D.palombini-ace-coap-pubsub-profile].
-   An example application that uses the CoAP pub/sub Broker and relies
-   on end-to-end object security is described in [RFC8387].  When only
-   end-to-end encryption is necessary and the CoAP Broker is trusted,
+   RECOMMENDED as described in [I-D.ietf-ace-pubsub-profile].  An
+   example application that uses the CoAP pub/sub Broker and relies on
+   end-to-end object security is described in [RFC8387].  When only end-
+   to-end encryption is necessary and the CoAP Broker is trusted,
    Payload Only Protection (Mode:PAYL) could be used.  The Publisher
    would wrap only the payload before sending it to the Broker and set
    the option Content-Format to application/smpayl.  Upon receival, the
@@ -1201,39 +1171,37 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
    (rt=) registry established with [RFC6690] and appends to the
    definition of one CoAP Response Code in the CoRE Parameters Registry.
 
+
+
+Koster, et al.          Expires 5 September 2020               [Page 21]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
 9.1.  Resource Type value 'core.ps'
 
-   o  Attribute Value: core.ps
+   *  Attribute Value: core.ps
 
-   o  Description: Section 4 of [[This document]]
+   *  Description: Section 4 of [[This document]]
 
-   o  Reference: [[This document]]
+   *  Reference: [[This document]]
 
-   o  Notes: None
+   *  Notes: None
 
 9.2.  Resource Type value 'core.ps.discover'
 
-   o  Attribute Value: core.ps.discover
+   *  Attribute Value: core.ps.discover
 
-   o  Description: Section 4 of [[This document]]
+   *  Description: Section 4 of [[This document]]
 
-   o  Reference: [[This document]]
+   *  Reference: [[This document]]
 
-   o  Notes: None
+   *  Notes: None
 
 10.  Acknowledgements
 
    The authors would like to thank Hannes Tschofenig, Zach Shelby, Mohit
    Sethi, Peter van der Stok, Tim Kellogg, Anders Eriksson, Goran
-
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 22]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
    Selander, Mikko Majanen, and Olaf Bergmann for their contributions
    and reviews.
 
@@ -1257,6 +1225,15 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
               <https://www.rfc-editor.org/info/rfc6570>.
 
    [RFC6690]  Shelby, Z., "Constrained RESTful Environments (CoRE) Link
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 22]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
+
               Format", RFC 6690, DOI 10.17487/RFC6690, August 2012,
               <https://www.rfc-editor.org/info/rfc6690>.
 
@@ -1279,35 +1256,21 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
               DOI 10.17487/RFC8516, January 2019,
               <https://www.rfc-editor.org/info/rfc8516>.
 
-
-
-
-
-
-
-Koster, et al.          Expires February 2, 2020               [Page 23]
-
-Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
-
-
 11.2.  Informative References
 
-   [I-D.ietf-core-object-security]
-              Selander, G., Mattsson, J., Palombini, F., and L. Seitz,
-              "Object Security for Constrained RESTful Environments
-              (OSCORE)", draft-ietf-core-object-security-16 (work in
-              progress), March 2019.
+   [I-D.ietf-ace-pubsub-profile]
+              Palombini, F., "Pub-Sub Profile for Authentication and
+              Authorization for Constrained Environments (ACE)", Work in
+              Progress, Internet-Draft, draft-ietf-ace-pubsub-profile-
+              00, 4 January 2020, <http://www.ietf.org/internet-drafts/
+              draft-ietf-ace-pubsub-profile-00.txt>.
 
    [I-D.ietf-core-resource-directory]
               Shelby, Z., Koster, M., Bormann, C., Stok, P., and C.
-              Amsuess, "CoRE Resource Directory", draft-ietf-core-
-              resource-directory-23 (work in progress), July 2019.
-
-   [I-D.palombini-ace-coap-pubsub-profile]
-              Palombini, F., "CoAP Pub-Sub Profile for Authentication
-              and Authorization for Constrained Environments (ACE)",
-              draft-palombini-ace-coap-pubsub-profile-05 (work in
-              progress), July 2019.
+              Amsuess, "CoRE Resource Directory", Work in Progress,
+              Internet-Draft, draft-ietf-core-resource-directory-23, 8
+              July 2019, <http://www.ietf.org/internet-drafts/draft-
+              ietf-core-resource-directory-23.txt>.
 
    [RFC5988]  Nottingham, M., "Web Linking", RFC 5988,
               DOI 10.17487/RFC5988, October 2010,
@@ -1317,6 +1280,15 @@ Internet-Draft      Publish-Subscribe Broker for CoAP        August 2019
               Considerations and Implementation Experiences in Securing
               Smart Object Networks", RFC 8387, DOI 10.17487/RFC8387,
               May 2018, <https://www.rfc-editor.org/info/rfc8387>.
+
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 23]
+
+Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
+
 
 Authors' Addresses
 
@@ -1332,7 +1304,7 @@ Authors' Addresses
    Email: ari.keranen@ericsson.com
 
 
-   Jaime Jimenez
+   Jaime Jiménez
    Ericsson
 
    Email: jaime.jimenez@ericsson.com
@@ -1341,4 +1313,32 @@ Authors' Addresses
 
 
 
-Koster, et al.          Expires February 2, 2020               [Page 24]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Koster, et al.          Expires 5 September 2020               [Page 24]
