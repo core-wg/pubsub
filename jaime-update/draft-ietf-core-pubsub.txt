@@ -11,7 +11,7 @@ Expires: 5 September 2020                                   J.J. Jiménez
 
 
 Publish-Subscribe Broker for the Constrained Application Protocol (CoAP)
-                     draft-ietf-core-coap-pubsub-09
+                   draft-ietf-core-coap-pubsub-latest
 
 Abstract
 
