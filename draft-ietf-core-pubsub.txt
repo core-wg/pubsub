@@ -5,9 +5,9 @@
 CoRE                                                         M.K. Koster
 Internet-Draft                                               SmartThings
 Intended status: Standards Track                            A.K. Keranen
-Expires: 5 September 2020                                   J.J. Jiménez
+Expires: 21 September 2020                                  J.J. Jiménez
                                                                 Ericsson
-                                                            4 March 2020
+                                                           20 March 2020
 
 
 Publish-Subscribe Broker for the Constrained Application Protocol (CoAP)
@@ -37,7 +37,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 September 2020.
+   This Internet-Draft will expire on 21 September 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 1]
+Koster, et al.          Expires 21 September 2020               [Page 1]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 2]
+Koster, et al.          Expires 21 September 2020               [Page 2]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -165,7 +165,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 3]
+Koster, et al.          Expires 21 September 2020               [Page 3]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -221,7 +221,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 4]
+Koster, et al.          Expires 21 September 2020               [Page 4]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -277,7 +277,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 5]
+Koster, et al.          Expires 21 September 2020               [Page 5]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -333,7 +333,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 6]
+Koster, et al.          Expires 21 September 2020               [Page 6]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -389,7 +389,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 7]
+Koster, et al.          Expires 21 September 2020               [Page 7]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -445,7 +445,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 8]
+Koster, et al.          Expires 21 September 2020               [Page 8]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -501,7 +501,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020                [Page 9]
+Koster, et al.          Expires 21 September 2020               [Page 9]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -557,7 +557,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 10]
+Koster, et al.          Expires 21 September 2020              [Page 10]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -613,7 +613,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 11]
+Koster, et al.          Expires 21 September 2020              [Page 11]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -669,7 +669,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 12]
+Koster, et al.          Expires 21 September 2020              [Page 12]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -725,7 +725,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 13]
+Koster, et al.          Expires 21 September 2020              [Page 13]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -781,7 +781,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 14]
+Koster, et al.          Expires 21 September 2020              [Page 14]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -837,7 +837,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 15]
+Koster, et al.          Expires 21 September 2020              [Page 15]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -893,7 +893,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 16]
+Koster, et al.          Expires 21 September 2020              [Page 16]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -949,7 +949,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 17]
+Koster, et al.          Expires 21 September 2020              [Page 17]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 18]
+Koster, et al.          Expires 21 September 2020              [Page 18]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1061,7 +1061,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 19]
+Koster, et al.          Expires 21 September 2020              [Page 19]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1117,7 +1117,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 20]
+Koster, et al.          Expires 21 September 2020              [Page 20]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1173,7 +1173,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 21]
+Koster, et al.          Expires 21 September 2020              [Page 21]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 22]
+Koster, et al.          Expires 21 September 2020              [Page 22]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1268,9 +1268,9 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
    [I-D.ietf-core-resource-directory]
               Shelby, Z., Koster, M., Bormann, C., Stok, P., and C.
               Amsuess, "CoRE Resource Directory", Work in Progress,
-              Internet-Draft, draft-ietf-core-resource-directory-23, 8
-              July 2019, <http://www.ietf.org/internet-drafts/draft-
-              ietf-core-resource-directory-23.txt>.
+              Internet-Draft, draft-ietf-core-resource-directory-24, 9
+              March 2020, <http://www.ietf.org/internet-drafts/draft-
+              ietf-core-resource-directory-24.txt>.
 
    [RFC5988]  Nottingham, M., "Web Linking", RFC 5988,
               DOI 10.17487/RFC5988, October 2010,
@@ -1285,7 +1285,7 @@ Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 23]
+Koster, et al.          Expires 21 September 2020              [Page 23]
 
 Internet-Draft      Publish-Subscribe Broker for CoAP         March 2020
 
@@ -1341,4 +1341,4 @@ Authors' Addresses
 
 
 
-Koster, et al.          Expires 5 September 2020               [Page 24]
+Koster, et al.          Expires 21 September 2020              [Page 24]
